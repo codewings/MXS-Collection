@@ -168,6 +168,7 @@ struct NamespaceNormalTools
                 local normal = editor.GetNormal i node:o
                 normal = [normal.x * v.x, normal.y * v.y, normal.z * v.z]
                 editor.SetNormal i normal node:o
+                editor.SetNormalExplicit i
             )
         )
         catch
@@ -215,6 +216,7 @@ struct NamespaceNormalTools
                 (
                     local normal = normalize(v)
                     editor.SetNormal i normal node:o
+                    editor.SetNormalExplicit i
                 )
             )
             else
@@ -224,6 +226,7 @@ struct NamespaceNormalTools
                     local normal = editor.GetNormal i node:o
                     normal = normalize(normal + v)
                     editor.SetNormal i normal node:o
+                    editor.SetNormalExplicit i
                 )
             )
         )
@@ -250,6 +253,7 @@ struct NamespaceNormalTools
                 local normal = editor.GetNormal i node:o
                 normal = normalize(normal)
                 editor.SetNormal i normal node:o
+                editor.SetNormalExplicit i
             )
         )
         catch
@@ -275,6 +279,7 @@ struct NamespaceNormalTools
                 local normal = editor.GetNormal i node:o
                 normal = -normal
                 editor.SetNormal i normal node:o
+                editor.SetNormalExplicit i
             )
         )
         catch
@@ -352,6 +357,7 @@ struct NamespaceNormalTools
                 local sphNormal = normalize(p - center)
                 normal = (sphNormal - normal) * ratio + normal -- lerp between the spherized normal and the original normal
                 editor.SetNormal i normal node:o
+                editor.SetNormalExplicit i
             )
         )
         catch
